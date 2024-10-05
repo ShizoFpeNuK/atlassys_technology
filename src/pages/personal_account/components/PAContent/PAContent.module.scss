@@ -1,20 +1,29 @@
+@use "/src/variables" as *;
+
 .main {
-  padding: 37px 40px;
+  padding: 37px 40px 30px;
   margin: 30px 40px;
   background-color: var(--white);
   border-radius: 25px;
 
   .container {
-    display: flex;
+    display: grid;
     column-gap: 53px;
-    flex-wrap: nowrap;
+    grid-template-columns: 130px 1fr;
     margin-top: 52px;
+  }
 
-    .container_left {
-      padding-top: 3px;
-    }
+  @media (max-width: 900px) {
+    margin: 25px;
+    padding: 22px 20px 25px;
 
-    .container_right {
+    .container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      column-gap: 0;
+      row-gap: 22px;
+      margin-top: 25px;
     }
   }
 }

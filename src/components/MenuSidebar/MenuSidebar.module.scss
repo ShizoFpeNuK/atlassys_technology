@@ -1,10 +1,17 @@
+@use "/src/variables" as *;
+
 $padding-left: 44px;
+$padding-left-mobile: 22px;
 
 .aside {
-  height: 100vh;
+  height: 100%;
   background-color: var(--white);
   border-right: solid 1px var(--light-grey);
   padding: 0 22px 0 $padding-left;
+
+  @media (max-width: $mobile) {
+    padding: 0 $padding-left-mobile;
+  }
 
   .logo {
     display: inline-flex;
@@ -12,6 +19,11 @@ $padding-left: 44px;
     align-items: center;
     padding: 33px 0 31px 0;
     margin-bottom: 31px;
+
+    @media (max-width: $mobile) {
+      padding: 20px 0;
+      margin-bottom: 20px;
+    }
   }
 
   .list {
@@ -29,6 +41,11 @@ $padding-left: 44px;
       height: 60px;
       width: 100%;
 
+      @media (max-width: $mobile) {
+        column-gap: 12px;
+        height: 40px;
+      }
+
       &::before {
         content: "";
         position: absolute;
@@ -42,6 +59,24 @@ $padding-left: 44px;
         border-bottom-right-radius: 10px;
         opacity: 0;
         transition: opacity 0.1s linear;
+
+        @media (max-width: $mobile) {
+          height: 40px;
+          left: -$padding-left-mobile;
+        }
+      }
+
+      &.active {
+        &::before {
+          opacity: 1;
+        }
+        .icon {
+          fill: var(--light-blue);
+        }
+
+        .label {
+          color: var(--light-blue);
+        }
       }
 
       .icon {
@@ -52,6 +87,11 @@ $padding-left: 44px;
         height: 25.1px;
         fill: var(--grey);
         transition: fill 0.1s linear;
+
+        @media (max-width: $mobile) {
+          width: 20px;
+          height: 20px;
+        }
       }
 
       .label {
@@ -60,17 +100,20 @@ $padding-left: 44px;
         line-height: 21.78px;
         color: var(--grey);
         transition: color 0.1s linear;
+
+        @media (max-width: $mobile) {
+          font-size: 15px;
+          line-height: 17.73px;
+        }
       }
 
       &:hover {
         &::before {
           opacity: 1;
         }
-
         .icon {
           fill: var(--light-blue);
         }
-
         .label {
           color: var(--light-blue);
         }

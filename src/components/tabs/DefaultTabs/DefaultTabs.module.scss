@@ -1,9 +1,16 @@
+@use "/src/variables" as *;
+
 .container {
   display: flex;
   justify-content: start;
   align-items: center;
   column-gap: 16px;
   border-bottom: solid 1px var(--bg-grey);
+
+  @media (max-width: $mobile) {
+    column-gap: 0;
+    justify-content: space-between;
+  }
 
   .tab {
     cursor: pointer;
@@ -13,6 +20,11 @@
     align-items: center;
     width: 114px;
     padding-bottom: 8px;
+
+    @media (max-width: $mobile) {
+      width: 80px;
+      padding-bottom: 7px;
+    }
 
     &::before {
       content: "";
@@ -26,7 +38,7 @@
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
       opacity: 0;
-      transition: opacity .1s linear;
+      transition: opacity 0.1s linear;
     }
 
     > span {
@@ -34,14 +46,28 @@
       font-weight: 500;
       line-height: 19.36px;
       color: var(--blue);
-      transition: color .1s linear;
+      transition: color 0.1s linear;
+
+      @media (max-width: $mobile) {
+        font-size: 13px;
+        line-height: 15.73px;
+        color: var(--blue);
+      }
+    }
+
+    &.active {
+      &::before {
+        opacity: 1;
+      }
+      > span {
+        color: var(--light-blue);
+      }
     }
 
     &:hover {
       &::before {
         opacity: 1;
       }
-
       > span {
         color: var(--light-blue);
       }

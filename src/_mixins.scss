@@ -1,9 +1,16 @@
+@use "/src/variables" as *;
+
 @mixin placeholder-styles {
   font-family: Inter, sans-serif;
   font-size: 15px;
   font-weight: 400;
   line-height: 18.15px;
   color: var(--medium-blue);
+
+  @media (max-width: $mobile) {
+    font-size: 13px;
+    line-height: 15.73px;
+  }
 }
 
 @mixin input-styles {
@@ -11,6 +18,11 @@
   font-weight: 400;
   line-height: 18.15px;
   color: var(--medium-blue);
+
+  @media (max-width: $mobile) {
+    font-size: 13px;
+    line-height: 15.73px;
+  }
 
   &::-webkit-input-placeholder {
     @include placeholder-styles;

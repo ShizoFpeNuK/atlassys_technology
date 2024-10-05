@@ -1,15 +1,11 @@
-import styles from "./PersonalAccountPage.module.scss";
-import Header from "../../components/Header/Header";
-import MenuSidebar from "../../components/MenuSidebar/MenuSidebar";
 import PAContent from "./components/PAContent/PAContent";
+import RootLayout from "../RootLayout";
 
 const PersonalAccountPage = () => {
 	return (
-		<div className={`${styles.grid}`}>
-			<MenuSidebar />
-			<Header />
+		<RootLayout>
 			<PAContent />
-		</div>
+		</RootLayout>
 	);
 };
 

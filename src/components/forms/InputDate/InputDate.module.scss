@@ -1,0 +1,62 @@
+@use "/src/variables" as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 11px;
+
+  > label {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+  }
+
+  .input {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    border-radius: 15px;
+    border: solid 1px var(--border);
+
+    &:has(> input[type="date"]) {
+      padding: 15px 20px;
+    }
+
+    > input {
+      width: 100%;
+
+      &::-webkit-calendar-picker-indicator {
+        display: none;
+      }
+      &::-webkit-inner-spin-button {
+        display: none;
+      }
+      &::-webkit-clear-button {
+        display: none;
+      }
+    }
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    row-gap: 9px;
+
+    > label {
+      font-size: 13px;
+      line-height: 15.73px;
+    }
+
+    .input {
+      padding: 12px 15px;
+
+      &:has(> input[type="date"]) {
+        padding: 11px 15px;
+      }
+    }
+  }
+}

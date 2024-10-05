@@ -1,18 +1,22 @@
 import styles from "./DefaultTabs.module.scss";
-import { FC } from "react";
+import { FC, useState } from "react";
 
 interface DefaultTabsProps {
 	tabs: string[];
-	onSelect?: () => void;
 }
 
-const DefaultTabs: FC<DefaultTabsProps> = ({ tabs, onSelect }) => {
+const DefaultTabs: FC<DefaultTabsProps> = ({ tabs }) => {
+	const [activeBtn, setActiveBtn] = useState<number | null>(0);
+
+	const handleClick = (i: number) => setActiveBtn(i);
+
 	return (
 		<div className={`${styles.container}`}>
-			{tabs.map((tab) => (
+			{tabs.map((tab, i) => (
 				<div
-					className={`${styles.tab}`}
-					onClick={onSelect}
+					key={tab}
+					className={`${styles.tab} ${activeBtn === i ? styles.active : {}}`}
+					onClick={() => handleClick(i)}
 				>
 					<span>{tab}</span>
 				</div>
