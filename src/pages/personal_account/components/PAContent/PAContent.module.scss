@@ -1,0 +1,20 @@
+.main {
+  padding: 37px 40px;
+  margin: 30px 40px;
+  background-color: var(--white);
+  border-radius: 25px;
+
+  .container {
+    display: flex;
+    column-gap: 53px;
+    flex-wrap: nowrap;
+    margin-top: 52px;
+
+    .container_left {
+      padding-top: 3px;
+    }
+
+    .container_right {
+    }
+  }
+}

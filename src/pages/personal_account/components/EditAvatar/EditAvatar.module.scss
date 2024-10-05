@@ -1,0 +1,26 @@
+.wrapper {
+  position: relative;
+
+  .avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    background-color: var(--bg-grey);
+    overflow: hidden;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .button {
+    position: absolute;
+    right: -2px;
+    bottom: 16px;
+  }
+}

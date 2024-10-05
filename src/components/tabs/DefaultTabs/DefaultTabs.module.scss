@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  column-gap: 16px;
+  border-bottom: solid 1px var(--bg-grey);
+
+  .tab {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 114px;
+    padding-bottom: 8px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 3px;
+      background-color: var(--light-blue);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      opacity: 0;
+      transition: opacity .1s linear;
+    }
+
+    > span {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 19.36px;
+      color: var(--blue);
+      transition: color .1s linear;
+    }
+
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+
+      > span {
+        color: var(--light-blue);
+      }
+    }
+  }
+}
